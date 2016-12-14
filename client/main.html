@@ -1,0 +1,51 @@
+<head>
+  <title>LaPresse Messenger</title>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+</head>
+
+<body>
+    {{> layout}}
+</body>
+
+
+<template name="layout">
+
+  <div class="flux">
+    {{> newsRender}}
+  </div>
+
+  {{> inputForm}}
+
+</template>
+
+<template name="inputForm">
+  <div id="textForm">
+    <textarea name="textmessage" id="textVal" rows="8" cols="40"></textarea>
+  </div>
+</template>
+
+<template name="messages">
+    <div class="bubble guest">
+      {{text}}
+    </div>
+</template>
+
+<template name="newsRender">
+  <div class="clearfix"></div>
+  <div class="newsGallery">
+    {{#each newsRender}}
+    <div class="bubble {{person}}">
+      <h2 class="title">{{title}}</h2>
+      <h2 class="description hidden">{{{description}}}</h2>
+      <div class="details text-muted text-italic">
+        <small class="pull-left">{{formatTime pubDate}} </small>
+        <small class="pull-right">{{author}}</small>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    {{/each}}
+  </div>
+  <div class="clearfix"></div>
+</template>
