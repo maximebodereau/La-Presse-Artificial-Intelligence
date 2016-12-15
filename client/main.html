@@ -37,8 +37,10 @@
   <div class="newsGallery">
     {{#each newsRender}}
     <div class="bubble {{person}}">
-      <h2 class="title">{{title}}</h2>
-      <h2 class="description hidden">{{{description}}}</h2>
+      <h2 class="title {{isNews}}">{{title}}</h2>
+      <h2 class="description hidden">
+      <a href="{{url}}" target="_blank">{{{description}}}</a> 
+      </h2>
       <div class="details text-muted text-italic">
         <small class="pull-left">{{formatTime pubDate}} </small>
         <small class="pull-right">{{author}}</small>

@@ -74,29 +74,25 @@ Template.inputForm.events({
 
 
       // KEY WORD : HELLO
-      if ( Session.get('dataKeyword') === "hi" ) {
-        console.log("Hi to you");
+      if ( Session.get('dataKeyword') === "hi" || Session.get('dataKeyword') === "hel") {
         Meteor.call('morningMessage');
-        // Reset the Keyword Track
-        Session.set('dataKeyword', ' ');
       }
-      // END KEY WORD : HELLO
-
       // KEY WORD : NEWS
-      if ( Session.get("dataKeyword") === "news" || Session.get("dataKeyword") === "News" ) {
-        //console.log("News keyword found");
+      if ( Session.get("dataKeyword") === "news" || Session.get("dataKeyword") === "New" ) {
         Meteor.call("callNewsXML");
-        Session.set('dataKeyword', ' ');
       }
-      // END KEY WORD : NEWS
-
       // KEY WORD : SPORT
-      if ( Session.get("dataKeyword") === "sport" ) {
-        //console.log("Sport keyword found");
+      if ( Session.get("dataKeyword") === "sport" || Session.get("dataKeyword") === "Sport"  ) {
         Meteor.call("callSportXML");
-        Session.set('dataKeyword', ' ');
       }
-      // END KEY WORD : SPORT
+      // KEY WORD : MTL
+      if ( Session.get("dataKeyword") === "montrea" || Session.get("dataKeyword") === "Montrea" ) {
+        Meteor.call("callMontrealXML");
+      }
+      // KEY WORD : ART
+      if ( Session.get("dataKeyword") === "art" || Session.get("dataKeyword") === "Art" ) {
+        Meteor.call("callArtXML");
+      }
 
 
       //Scroll to Bottom
@@ -141,7 +137,7 @@ Template.newsRender.events({
     $(event.target).children('.description').show();
     $(event.target).children('.title').hide();
   },
-  "click .bubble.bot .title": function ( event, template ) {
+  "click .bubble.bot .title.isNews": function ( event, template ) {
     $(event.target).siblings('.description').show();
     $(event.target).hide();
   }
