@@ -52,6 +52,8 @@ a, a:hover {
   height: 85%;
   overflow: hidden;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 200px;
 }
 
 #textForm {
@@ -75,7 +77,32 @@ a, a:hover {
   border-top: 1px solid #F3F3F3;
 }
 
+.avatar {
+  display: none;
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+
+.avatar.guest {
+  display: none;
+}
+
+.avatar-icon {
+  width: 25px;
+  height: 25px;
+  background: url('/images/feedy.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: 5px;
+  margin-top: 7px;
+}
+
 .bubble {
+  display: none;
+  position: relative;
+  min-width: 50%;
+  max-width: 70%;
   color: #F2F2F2;
   cursor: pointer;
   padding: 10px;
@@ -86,6 +113,28 @@ a, a:hover {
   border-radius: 3px;
   background: #1B2530;
   box-shadow: 0px -1px 16px 0px #080B0E, inset 0px -1px 0px 0px rgba(0,0,0,0.93), inset 0px 1px 0px 0px rgba(170,170,170,0.26);
+}
+
+.bubble:after {
+  right: 100%;
+	top: 0%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(27, 37, 48, 0);
+	border-right-color: #1B2530;
+	border-width: 10px;
+	margin-top: 0px;
+}
+
+.bubble:before {
+	border-color: rgba(255, 255, 255, 0);
+	border-right-color: #fff;
+	border-width: 11px;
+	margin-top: 1px;
 }
 
 .bubble.guest{
@@ -107,6 +156,28 @@ a, a:hover {
 }
 
 .newsGallery {
+  width: 100%;
+  height: 100%;
+}
+
+.closeiFrame {
+  color: #F3F3F3;
+}
+
+.iframe {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 50%;
+  height: 100%;
+  border: none;
+  padding-top: 25px;
+  background: #000;
+  overflow-y: auto;
+}
+
+.iframe iframe {
+  border: none;
   width: 100%;
   height: 100%;
 }

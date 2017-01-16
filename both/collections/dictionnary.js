@@ -1,6 +1,6 @@
-News = new Mongo.Collection("news");
+Dictionnary = new Mongo.Collection("dictionnary");
 
-News.allow({
+Dictionnary.allow({
   insert: function(){
     return true;
   },

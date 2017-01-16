@@ -8,8 +8,6 @@
 <body>
     {{> layout}}
 </body>
-
-
 <template name="layout">
 
   <div class="flux">
@@ -26,21 +24,21 @@
   </div>
 </template>
 
-<template name="messages">
-    <div class="bubble guest">
-      {{text}}
-    </div>
-</template>
-
 <template name="newsRender">
+
   <div class="clearfix"></div>
+
   <div class="newsGallery">
     {{#each newsRender}}
-    <div class="bubble {{person}}">
+    <div class="avatar {{person}}">
+      <div class="avatar-icon"></div>
+    </div>
+    <div class="bubble {{person}}" value="{{_id}}">
       <h2 class="title {{isNews}}">{{title}}</h2>
-      <h2 class="description hidden">
-      <a href="{{url}}" target="_blank">{{{description}}}</a> 
-      </h2>
+      <div class="description hidden">
+        <h2 class="openiFrame" data-id={{_id}}>{{{description}}}</h2>
+        {{> iframeWeb}}
+      </div>
       <div class="details text-muted text-italic">
         <small class="pull-left">{{formatTime pubDate}} </small>
         <small class="pull-right">{{author}}</small>
@@ -49,5 +47,16 @@
     <div class="clearfix"></div>
     {{/each}}
   </div>
+
   <div class="clearfix"></div>
+</template>
+
+
+<template name="iframeWeb">
+  {{#if askExtUrl}}
+  <div class="iframe">
+    <div class="closeiFrame"><h2>x</h2></div>
+    <iframe src="{{url}}"></iframe>
+  </div>
+  {{/if}}
 </template>
